@@ -1,17 +1,34 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+
+Class App extends React.Component {
+	state = {
+		texto: 'Turma React'
+	}
+	handleClick() {
+		alert('Alerta Aqui')
+	}
+	handleTextChange(e) {
+		this.setState({
+			texto: e.target.value
+		})
+	}
+	render() {
+		return (
+			<div>
+				<h1>Hello World! {this.state.texto}</h1>
+				<h2>{this.state.texto}</h2>
+				<input type="text" onChange={this.handleTextChange}></input>
+				<button onClock={this.handleClick.bind(this)}>Click</button>
+			</div>
+		)
+	}
+}
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
+	<React.StrictMode>
+		<App name={"Cleydson Souza"} />
+	</React.StrictMode>
+	document.getElementById('root')
 );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
